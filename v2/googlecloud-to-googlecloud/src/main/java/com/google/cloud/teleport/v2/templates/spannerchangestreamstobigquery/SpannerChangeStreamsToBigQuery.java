@@ -257,6 +257,7 @@ public final class SpannerChangeStreamsToBigQuery {
                     .withFormatRecordOnFailureFunction(element -> element)
                     .withCreateDisposition(CreateDisposition.CREATE_IF_NEEDED)
                     .withWriteDisposition(Write.WriteDisposition.WRITE_APPEND)
+                    .withSchemaUpdateOptions(Set.of(Write.SchemaUpdateOption.ALLOW_FIELD_ADDITION))
                     .withExtendedErrorInfo()
                     .withMethod(Write.Method.STREAMING_INSERTS)
                     .withFailedInsertRetryPolicy(InsertRetryPolicy.retryTransientErrors()));
